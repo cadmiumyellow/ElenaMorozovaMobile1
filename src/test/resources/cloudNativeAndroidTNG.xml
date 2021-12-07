@@ -2,7 +2,7 @@
 <suite name="Native mobile testing Suite for EPAM Mobile Cloud">
     <parameter name="appType" value="native"></parameter>
 <!--    <parameter name="deviceName" value="GOOGLE Pixel 3 XL"></parameter>-->
-    <parameter name="udid" value="E2MBA80831003116"></parameter>
+    <parameter name="udid" value="3QX4C20618001895"></parameter>
     <parameter name="platformName" value="Android"></parameter>
     <parameter name="appPackage" value="platkovsky.alexey.epamtestapp"></parameter>
     <parameter name="appActivity" value="activities.LoginActivity"></parameter>

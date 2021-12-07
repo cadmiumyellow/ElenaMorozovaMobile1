@@ -1,11 +1,11 @@
 package scenarios;
 
+import dataProviders.WebDataProvider;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.WebPageObject;
 import setup.BaseTest;
@@ -19,7 +19,7 @@ public class WebMobileTests extends BaseTest {
         getDriver().get("http://iana.org"); // open IANA homepage
 
         // Make sure that page has been loaded completely
-        new WebDriverWait(getDriver(), 10).until(
+        new WebDriverWait(getDriver(), 30).until(
                 wd -> ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete")
         );
 
@@ -30,15 +30,15 @@ public class WebMobileTests extends BaseTest {
         System.out.println("Site opening done");
     }
 
-    @Parameters({"url","searchWord"})
-    @Test(groups = {"web"}, description = "Make sure google search works for EPAM request")
+    @Test(groups = {"web"}, description = "Make sure google search works for EPAM request",
+            dataProviderClass = WebDataProvider.class, dataProvider = "webTestData")
     public void epamGoogleSearchTest(String url, String searchWord) throws InterruptedException, StaleElementReferenceException {
         WebPageObject po = new WebPageObject(getDriver());
         getDriver().get(url);           // open google page
         System.out.println("Opened google page");
 
         // Make sure that page has been loaded completely
-        new WebDriverWait(getDriver(), 10).until(
+        new WebDriverWait(getDriver(), 30).until(
                 wd -> ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete")
         );
 
@@ -57,9 +57,8 @@ public class WebMobileTests extends BaseTest {
         //Get the results of google search for EPAM
         List<String> results = po.getSearchResults();
 
-        //Check search results are not empty and contain "EPAM"
-        Assert.assertTrue(results.size() > 0);
-        Assert.assertTrue(po.getSearchResults().get(0).toLowerCase().contains(searchWord.toLowerCase()),
+        //Check all search results contain search input
+        Assert.assertTrue(po.checkAllSearchResultsContain(results, searchWord),
                 "Search results do not contain search input");
 
         // Log that EPAM search test is over

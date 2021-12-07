@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
 import pageObjects.PageObject;
+import utils.TokenConverter;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -38,6 +39,8 @@ public class BaseTest implements IDriver {
         setAppiumDriver(platformName, deviceName, udid, browserName, app, appPackage, appActivity, bundleId);
         setPageObject(appType, appiumDriver);
 
+        // You can convert your mobile cloud token into URL-compatible mode here
+        //String token = TokenConverter.convertToken("");
     }
 
     @AfterSuite(alwaysRun = true)

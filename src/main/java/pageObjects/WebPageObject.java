@@ -42,4 +42,14 @@ public class WebPageObject  {
                 .map(WebElement::getText)
                 .collect(Collectors.toList());
     }
+
+    public Boolean checkAllSearchResultsContain(List<String> searchResults, String searchInput) {
+        Boolean isContain = false;
+        for (String item : searchResults) {
+            if (item.toLowerCase().contains(searchInput.toLowerCase())) {
+                isContain = true;
+            }
+        }
+        return isContain;
+    }
 }

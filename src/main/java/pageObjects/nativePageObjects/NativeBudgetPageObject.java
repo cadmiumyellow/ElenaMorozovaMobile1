@@ -13,11 +13,11 @@ public class NativeBudgetPageObject {
     }
 
 
-    @iOSXCUITFindBy(xpath = "//*[@name='Add']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name='Add']")
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/add_new_expense")
     WebElement addNewExpenseBtn;
 
-    @iOSXCUITFindBy(xpath = "//*[@label='Budget']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[@name='Budget']")
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/" +
             "android.widget.LinearLayout/android.widget.FrameLayout/" +
             "android.view.ViewGroup/android.widget.FrameLayout[2]/" +

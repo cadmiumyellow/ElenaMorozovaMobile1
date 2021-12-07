@@ -6,48 +6,46 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import utils.Prop;
 
 public class NativeRegisterUserPageObject {
     public NativeRegisterUserPageObject(AppiumDriver appiumDriver) {
         PageFactory.initElements( new AppiumFieldDecorator(appiumDriver), this);
     }
-    Prop prop = new Prop();
 
-    @iOSXCUITFindBy(xpath = "//*[@name='Sign In']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Sign In']")
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/email_sign_in_button")
     WebElement signInBtn;
 
-    @iOSXCUITFindBy(xpath = "//*[@name='Register new account']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Register new account']")
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/register_button")
     WebElement registerBtn;
 
-    @iOSXCUITFindBy(xpath = "//*[@value='user@example.com']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Email']/following-sibling::XCUIElementTypeTextField")
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/registration_email")
     WebElement regEmailBtn;
 
-    @iOSXCUITFindBy(xpath = "//*[@value='TimApple']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Username']/following-sibling::XCUIElementTypeTextField")
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/registration_username")
     WebElement regUsernameBtn;
 
-    @iOSXCUITFindBy(xpath = "//*[@value='Required']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Password']/following-sibling::XCUIElementTypeSecureTextField")
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/registration_password")
     WebElement regPasswordBtn;
 
-    @iOSXCUITFindBy(xpath = "//*[@value='Repeat please']")
+    @iOSXCUITFindBy(xpath = "////XCUIElementTypeStaticText[@name='Confirm password']/following-sibling::XCUIElementTypeSecureTextField")
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/registration_confirm_password")
     WebElement regConfirmPasswordBtn;
 
-    @iOSXCUITFindBy(xpath = "//*[@name='Register new account']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Register new account']")
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/register_new_account_button")
     WebElement registerNewAccountBtn;
 
-    public void registerUser() {
+    public void registerUser(String email, String username, String password) {
         registerBtn.click();
-        regEmailBtn.sendKeys(prop.getPropertyValue("email"));
-        regUsernameBtn.sendKeys(prop.getPropertyValue("username"));
-        regPasswordBtn.sendKeys(prop.getPropertyValue("password"));
-        regConfirmPasswordBtn.sendKeys(prop.getPropertyValue("password"));
+        regEmailBtn.sendKeys(email);
+        regUsernameBtn.sendKeys(username);
+        regPasswordBtn.sendKeys(password);
+        regConfirmPasswordBtn.sendKeys(password);
         registerNewAccountBtn.click();
     }
 }

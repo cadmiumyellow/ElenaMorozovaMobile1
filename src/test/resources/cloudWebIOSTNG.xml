@@ -5,8 +5,6 @@
     <parameter name="udid" value="3e50758dd2e1179a014ee7b51dc4285d73118107"></parameter>
     <parameter name="platformName" value="iOS"></parameter>
     <parameter name="browserName" value="Safari"></parameter>
-    <parameter name="url" value="http://google.com"></parameter>
-    <parameter name="searchWord" value="EPAM"></parameter>
     <test name="Cloud Web tests">
         <groups>
             <run>

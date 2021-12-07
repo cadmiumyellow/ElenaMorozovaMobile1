@@ -2,11 +2,9 @@
 <suite name="EPAM mobile cloud Web testing Suite">
     <parameter name="appType" value="web"></parameter>
     <!--parameter name="deviceName" value="SAMSUNG SM-G960F"></parameter-->
-    <parameter name="udid" value="PL2GAR9880706649"></parameter>
+    <parameter name="udid" value="3QX4C20618001895"></parameter>
     <parameter name="platformName" value="Android"></parameter>
     <parameter name="browserName" value="Chrome"></parameter>
-    <parameter name="url" value="http://google.com"></parameter>
-    <parameter name="searchWord" value="EPAM"></parameter>
     <test name="Cloud Web tests">
         <groups>
             <run>
