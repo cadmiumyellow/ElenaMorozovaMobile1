@@ -27,5 +27,5 @@ public class NativeBudgetPageObject {
         public String getAddNewExpenseBtnText() {
             return addNewExpenseBtn.getText();
         }
-    }
 }
+

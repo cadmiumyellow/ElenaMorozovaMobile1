@@ -2,7 +2,7 @@
 <suite name="Native mobile testing Suite">
     <parameter name="appType" value="native"></parameter>
     <parameter name="deviceName" value="emulator-5554"></parameter>
-    <!--    <parameter name="deviceName" value="520310a7fa8a6395"></parameter>-->
+<!--        <parameter name="deviceName" value="520310a7fa8a6395"></parameter>-->
     <parameter name="platformName" value="Android"></parameter>
     <parameter name="app" value="src/test/resources/EPAMTestApp.apk"></parameter>
     <test name="Native tests">

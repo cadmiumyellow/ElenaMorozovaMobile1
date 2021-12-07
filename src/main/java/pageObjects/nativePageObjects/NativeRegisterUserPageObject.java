@@ -5,14 +5,12 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import utils.Prop;
 
 public class NativeRegisterUserPageObject {
 
     public NativeRegisterUserPageObject(AppiumDriver appiumDriver) {
         PageFactory.initElements( new AppiumFieldDecorator(appiumDriver), this);
     }
-    Prop prop = new Prop();
 
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/email_sign_in_button")
     WebElement signInBtn;
@@ -29,12 +27,12 @@ public class NativeRegisterUserPageObject {
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/register_new_account_button")
     WebElement registerNewAccountBtn;
 
-    public void registerUser() {
+    public void registerUser(String email, String username, String password) {
         registerBtn.click();
-        regEmailBtn.sendKeys(prop.getPropertyValue("email"));
-        regUsernameBtn.sendKeys(prop.getPropertyValue("username"));
-        regPasswordBtn.sendKeys(prop.getPropertyValue("password"));
-        regConfirmPasswordBtn.sendKeys(prop.getPropertyValue("password"));
+        regEmailBtn.sendKeys(email);
+        regUsernameBtn.sendKeys(username);
+        regPasswordBtn.sendKeys(password);
+        regConfirmPasswordBtn.sendKeys(password);
         registerNewAccountBtn.click();
     }
 }
