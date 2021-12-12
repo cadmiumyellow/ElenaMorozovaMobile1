@@ -48,6 +48,8 @@ public class WebPageObject  {
         for (String item : searchResults) {
             if (item.toLowerCase().contains(searchInput.toLowerCase())) {
                 isContain = true;
+            } else {
+                isContain = false;
             }
         }
         return isContain;
